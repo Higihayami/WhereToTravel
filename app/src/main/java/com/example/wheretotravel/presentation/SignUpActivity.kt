@@ -2,38 +2,40 @@ package com.example.wheretotravel.presentation
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.wheretotravel.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.ktx.Firebase
 
 
-class LoginActivity : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var vm: SignUpViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_sign_up)
+
+        Log.e("AAA", "Activity created")
+
+        vm = ViewModelProvider(this, SignUpViewModelFactory(this))
+            .get(SignUpViewModel::class.java)
+
         val edLogin = findViewById<EditText>(R.id.edLogin)
+        val edPhone = findViewById<EditText>(R.id.edPhone)
+        val edName = findViewById<EditText>(R.id.edName)
         val edPassword = findViewById<EditText>(R.id.edPassword)
+        val edRepeatPassword = findViewById<EditText>(R.id.edRepeatPassword)
         val btnLogin = findViewById<Button>(R.id.btn_login)
         val btnAuth = findViewById<Button>(R.id.btn_auth)
-        mAuth = FirebaseAuth.getInstance();
 
         btnAuth.setOnClickListener {
-            if(!TextUtils.isEmpty(edLogin.text.toString()) && !TextUtils.isEmpty(edPassword.text.toString())){
-                mAuth.createUserWithEmailAndPassword(edLogin.text.toString(),edPassword.text.toString()).addOnCompleteListener(this){task ->
-                    if (task.isSuccessful)
-                        Toast.makeText(this, "succes", Toast.LENGTH_SHORT).show()
-                    else
-                        Toast.makeText(this, "not", Toast.LENGTH_SHORT).show()
-                }
-            }
+            vm.login(edLogin,edPhone,edName,edPassword,edRepeatPassword, this)
         }
 
         btnLogin.setOnClickListener {
@@ -51,22 +53,4 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-
-    private fun init(){
-        val edLogin = findViewById<EditText>(R.id.edLogin)
-        val edPassword = findViewById<EditText>(R.id.edPassword)
-        mAuth = FirebaseAuth.getInstance();
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val cUser = mAuth?.currentUser
-        if(cUser != null){
-            Toast.makeText(this, "User not null", Toast.LENGTH_SHORT)
-        }
-        else{
-            Toast.makeText(this, "User not null", Toast.LENGTH_SHORT)
-        }
-    }
-
 }
