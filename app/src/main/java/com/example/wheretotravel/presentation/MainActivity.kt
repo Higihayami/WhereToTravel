@@ -6,15 +6,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.example.wheretotravel.R
-import com.example.wheretotravel.domain.models.SaveNameParam
-import com.example.wheretotravel.domain.models.UserName
+import com.example.wheretotravel.data.repository.UserRepositoryImpl
+import com.example.wheretotravel.domain.repository.UserRepository
 import com.example.wheretotravel.domain.usecase.GetUserNameUseCase
 import com.example.wheretotravel.domain.usecase.SaveUserNameUseCase
 
 class MainActivity : AppCompatActivity() {
 
-    private val getUserNameUseCase = GetUserNameUseCase()
-    private val saveUserNameUseCase= SaveUserNameUseCase()
+    private val userRepository by lazy { UserRepositoryImpl(context = applicationContext )}
+    private val getUserNameUseCase by lazy{GetUserNameUseCase()}
+    private val saveUserNameUseCase by lazy {SaveUserNameUseCase(userRepository = userRepository)}
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,14 +29,14 @@ class MainActivity : AppCompatActivity() {
 
         btnGetData.setOnClickListener {
             val text = editPutData.text.toString()
-            val params = SaveNameParam(name = text)
-            val result: Boolean = saveUserNameUseCase.execute(params)
-            txtData.text = "Save result = $result"
+            //val params = SaveNameParam(name = text)
+            //val result: Boolean = saveUserNameUseCase.execute(param = params)
+            //txtData.text = "Save result = $result"z
         }
 
         btnSaveData.setOnClickListener {
-            val userName: UserName = getUserNameUseCase.execute()
-            txtData.text ="${userName.firstname} ${userName.lastname}"
+            //val userName: UserName = getUserNameUseCase.execute()
+            //txtData.text ="${userName.firstname} ${userName.lastname}"
         }
     }
 }
