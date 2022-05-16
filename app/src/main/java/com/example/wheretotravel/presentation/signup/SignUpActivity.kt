@@ -1,4 +1,4 @@
-package com.example.wheretotravel.presentation
+package com.example.wheretotravel.presentation.signup
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.wheretotravel.R
+import com.example.wheretotravel.presentation.signup.SignUpViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 
 

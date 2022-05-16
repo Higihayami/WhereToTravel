@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhereToTravel">
         <activity
-            android:name=".presentation.SignUpActivity"
+            android:name=".presentation.signup.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.MainActivity"

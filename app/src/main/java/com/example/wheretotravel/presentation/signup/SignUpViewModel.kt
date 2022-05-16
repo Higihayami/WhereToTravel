@@ -1,4 +1,4 @@
-package com.example.wheretotravel.presentation
+package com.example.wheretotravel.presentation.signup
 
 import android.content.Context
 import android.util.Log
