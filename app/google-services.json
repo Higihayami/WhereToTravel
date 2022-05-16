@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "381794475978",
+    "firebase_url": "https://wheretotravel-f6342-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "wheretotravel-f6342",
+    "storage_bucket": "wheretotravel-f6342.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381794475978:android:c04e8266b43336d2c53933",
+        "android_client_info": {
+          "package_name": "com.example.wheretotravel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381794475978-j2ar07k56bs7cruf287l0lomo6gjjeo6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2iyJeMoNeACNlzv48F4jIDIHprcRi3V8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381794475978-j2ar07k56bs7cruf287l0lomo6gjjeo6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
