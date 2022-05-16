@@ -9,11 +9,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.wheretotravel.R
-import com.example.wheretotravel.presentation.signup.SignUpViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 
 
-class SignUpActivity : AppCompatActivity() {
+class   SignUpActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var vm: SignUpViewModel

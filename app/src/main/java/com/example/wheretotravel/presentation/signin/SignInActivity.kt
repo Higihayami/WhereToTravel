@@ -1,4 +1,4 @@
-package com.example.wheretotravel.presentation
+package com.example.wheretotravel.presentation.signin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
