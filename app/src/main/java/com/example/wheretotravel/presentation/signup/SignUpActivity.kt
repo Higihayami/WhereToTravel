@@ -1,5 +1,6 @@
 package com.example.wheretotravel.presentation.signup
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -9,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.wheretotravel.R
+import com.example.wheretotravel.presentation.MainActivity
+import com.example.wheretotravel.presentation.signin.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -21,7 +24,6 @@ class   SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        Log.e("AAA", "Activity created")
 
         vm = ViewModelProvider(this, SignUpViewModelFactory(this))
             .get(SignUpViewModel::class.java)
@@ -39,17 +41,8 @@ class   SignUpActivity : AppCompatActivity() {
         }
 
         btnLogin.setOnClickListener {
-            if(!TextUtils.isEmpty(edLogin.text.toString()) && !TextUtils.isEmpty(edPassword.text.toString())) {
-                mAuth.signInWithEmailAndPassword(
-                    edLogin.text.toString(),
-                    edPassword.text.toString()
-                ).addOnCompleteListener(this){task ->
-                    if (task.isSuccessful)
-                        Toast.makeText(this, "succes", Toast.LENGTH_SHORT).show()
-                    else
-                        Toast.makeText(this, "not", Toast.LENGTH_SHORT).show()
-                }
-            }
+            val intent = Intent(this@SignUpActivity, SignInActivity::class.java)
+            startActivity(intent)
         }
 
     }

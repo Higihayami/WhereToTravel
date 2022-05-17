@@ -11,19 +11,31 @@ class SignIn {
     private lateinit var mAuth: FirebaseAuth
 
 
-    fun execute(param: UserSignIn, context: Context){
+    fun execute(param: UserSignIn, context: Context): Boolean{
 
         mAuth = FirebaseAuth.getInstance()
+        var bool:Boolean
         if(!TextUtils.isEmpty(param.login) && !TextUtils.isEmpty(param.password)) {
             mAuth.signInWithEmailAndPassword(
                 param.login,
                 param.password
             ).addOnCompleteListener{task ->
-                if (task.isSuccessful)
+                if (task.isSuccessful) {
                     Toast.makeText(context, "succes", Toast.LENGTH_SHORT).show()
-                else
+                    bool = true
+                }
+                else {
                     Toast.makeText(context, "not", Toast.LENGTH_SHORT).show()
+                    bool = false
+                }
+
             }
+
         }
+        else {
+            Toast.makeText(context, "Заполните все поля", Toast.LENGTH_SHORT).show()
+            bool = false
+        }
+        return  bool
     }
 }

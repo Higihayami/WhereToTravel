@@ -13,18 +13,6 @@ class SignUpViewModel(
     private val signUp: SignUp
 ): ViewModel() {
 
-    private lateinit var mAuth: FirebaseAuth
-    private lateinit var vm: SignUpViewModel
-
-    init {
-        Log.e("AAA","VM created")
-    }
-
-    override fun onCleared() {
-        Log.e("AAA","VM cleared")
-        super.onCleared()
-    }
-
     fun login(edLogin: EditText ,edPhone: EditText, edName: EditText, edPassword:EditText, edRepeatPassword: EditText, context: Context){
         if(!(edLogin.text.toString().isEmpty() && edPhone.text.toString().isEmpty() && edName.text.toString().isEmpty() && edPassword.text.toString().isEmpty() && edRepeatPassword.text.toString().isEmpty())) {
             val param = UserSignUp(

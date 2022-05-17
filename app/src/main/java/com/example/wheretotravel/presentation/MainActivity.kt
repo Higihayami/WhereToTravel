@@ -11,16 +11,16 @@ import com.example.wheretotravel.domain.repository.UserRepository
 //import com.example.wheretotravel.domain.usecase.GetUserNameUseCase
 //import com.example.wheretotravel.domain.usecase.SaveUserNameUseCase
 
-class MainActivity : AppCompatActivity() //{
+class MainActivity : AppCompatActivity() {
 //
 //    //private val userRepository by lazy { UserRepositoryImpl(context = applicationContext )}
 //   // private val getUserNameUseCase by lazy{GetUserNameUseCase()}
 //    //private val saveUserNameUseCase by lazy {SaveUserNameUseCase(userRepository = userRepository)}
 //
 //
-//    //override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
 //
 //        val txtData = findViewById<TextView>(R.id.txtData)
 //        val editPutData = findViewById<EditText>(R.id.editPutData)
@@ -38,5 +38,5 @@ class MainActivity : AppCompatActivity() //{
 //            //val userName: UserName = getUserNameUseCase.execute()
 //            //txtData.text ="${userName.firstname} ${userName.lastname}"
 //        }
-//    }
-//}
+        }
+}
