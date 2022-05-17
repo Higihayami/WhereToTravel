@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/searchFragment">
+    app:startDestination="@id/search_fragment">
 
     <fragment
         android:id="@+id/searchFragment"
@@ -18,9 +18,11 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.wheretotravel.presentation.main.fragment.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile"/>
     <fragment
         android:id="@+id/rideFragment"
         android:name="com.example.wheretotravel.presentation.main.fragment.RideFragment"
-        android:label="RideFragment" />
+        android:label="fragment_ride"
+        tools:layout="@layout/fragment_ride"/>
 </navigation>
