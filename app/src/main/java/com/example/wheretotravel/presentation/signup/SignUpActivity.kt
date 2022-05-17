@@ -2,15 +2,11 @@ package com.example.wheretotravel.presentation.signup
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.wheretotravel.R
-import com.example.wheretotravel.presentation.MainActivity
 import com.example.wheretotravel.presentation.signin.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 

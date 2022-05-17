@@ -7,11 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import com.example.wheretotravel.R
-import com.example.wheretotravel.domain.functions.SignUp
-import com.example.wheretotravel.presentation.MainActivity
+import com.example.wheretotravel.presentation.main.MainActivity
 import com.example.wheretotravel.presentation.signup.SignUpActivity
-import com.example.wheretotravel.presentation.signup.SignUpViewModel
-import com.example.wheretotravel.presentation.signup.SignUpViewModelFactory
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var vm: SignInViewModel
@@ -30,11 +27,11 @@ class SignInActivity : AppCompatActivity() {
             .get(SignInViewModel::class.java)
 
         btnLogin.setOnClickListener {
-            if(vm.signIn(edLogin,edPassword, this)) {
-                val intent = Intent(this@SignInActivity, MainActivity::class.java)
-                startActivity(intent)
-            }
+            vm.signIn(edLogin, edPassword, this)
+            val intent = Intent(this@SignInActivity, MainActivity::class.java)
+            startActivity(intent)
         }
+
         btnAuth.setOnClickListener {
             val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
             startActivity(intent)

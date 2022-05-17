@@ -11,14 +11,12 @@ class SignInViewModel(
     private val signIn: SignIn
 ):ViewModel() {
 
-    fun signIn(edLogin:EditText , edPassword: EditText, context: Context): Boolean{
+    fun signIn(edLogin:EditText , edPassword: EditText, context: Context){
         if(!(edLogin.text.toString().isEmpty() && edPassword.text.toString().isEmpty())){
             val param = UserSignIn(
                 login = edLogin.text.toString(),
                 password = edPassword.text.toString())
-            return (signIn.execute(param, context))
+            signIn.execute(param, context)
         }
-        else
-            return false
     }
 }
