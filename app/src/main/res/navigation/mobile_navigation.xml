@@ -6,23 +6,24 @@
     app:startDestination="@id/search_fragment">
 
     <fragment
-        android:id="@+id/searchFragment"
+        android:id="@+id/search_fragment"
         android:name="com.example.wheretotravel.presentation.main.fragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
-        android:id="@+id/helpFragment"
+        android:id="@+id/help_fragment"
         android:name="com.example.wheretotravel.presentation.main.fragment.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/profile_fragment"
         android:name="com.example.wheretotravel.presentation.main.fragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile"/>
     <fragment
-        android:id="@+id/rideFragment"
+        android:id="@+id/ride_fragment"
         android:name="com.example.wheretotravel.presentation.main.fragment.RideFragment"
         android:label="fragment_ride"
-        tools:layout="@layout/fragment_ride"/>
+        tools:layout="@layout/fragment_ride" />
+
 </navigation>
