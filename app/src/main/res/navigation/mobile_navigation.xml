@@ -3,25 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/search_fragment">
+    app:startDestination="@id/navigation_search">
 
     <fragment
-        android:id="@+id/search_fragment"
+        android:id="@+id/navigation_search"
         android:name="com.example.wheretotravel.presentation.main.fragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
-        android:id="@+id/help_fragment"
+        android:id="@+id/navigation_help"
         android:name="com.example.wheretotravel.presentation.main.fragment.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
     <fragment
-        android:id="@+id/profile_fragment"
+        android:id="@+id/navigation_profile"
         android:name="com.example.wheretotravel.presentation.main.fragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile"/>
     <fragment
-        android:id="@+id/ride_fragment"
+        android:id="@+id/navigation_ride"
         android:name="com.example.wheretotravel.presentation.main.fragment.RideFragment"
         android:label="fragment_ride"
         tools:layout="@layout/fragment_ride" />
