@@ -16,22 +16,22 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_help"
-        android:name="com.example.wheretotravel.presentation.main.fragment.HelpFragment"
+        android:name="com.example.wheretotravel.presentation.main.fragment.help.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.wheretotravel.presentation.main.fragment.ProfileFragment"
+        android:name="com.example.wheretotravel.presentation.main.fragment.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile"/>
     <fragment
         android:id="@+id/navigation_ride"
-        android:name="com.example.wheretotravel.presentation.main.fragment.RideFragment"
+        android:name="com.example.wheretotravel.presentation.main.fragment.rides.RideFragment"
         android:label="fragment_ride"
         tools:layout="@layout/fragment_ride" />
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.wheretotravel.presentation.main.fragment.ListFragment"
+        android:name="com.example.wheretotravel.presentation.main.fragment.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action

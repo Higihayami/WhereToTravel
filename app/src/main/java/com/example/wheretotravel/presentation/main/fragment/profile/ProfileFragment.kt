@@ -1,4 +1,4 @@
-package com.example.wheretotravel.presentation.main.fragment
+package com.example.wheretotravel.presentation.main.fragment.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,6 +17,6 @@ class ProfileFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() =ProfileFragment()
+        fun newInstance() = ProfileFragment()
     }
 }

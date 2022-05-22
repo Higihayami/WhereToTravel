@@ -6,6 +6,6 @@ import retrofit2.http.Query
 
 interface Api {
 
-    @GET("https://suggest.travelpayouts.com/search?service=tutu_trains&date=21.05.2022")
+    @GET("https://suggest.travelpayouts.com/search?service=tutu_trains")
     suspend fun getRides(@Query("term") cityDeparture: String, @Query("term2") cityArrival: String,@Query("date")date: String): RidesResponseJson
 }

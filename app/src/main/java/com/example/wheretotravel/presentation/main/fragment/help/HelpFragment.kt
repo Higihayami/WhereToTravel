@@ -1,4 +1,4 @@
-package com.example.wheretotravel.presentation.main.fragment
+package com.example.wheretotravel.presentation.main.fragment.help
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
