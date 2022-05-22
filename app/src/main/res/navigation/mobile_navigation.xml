@@ -7,9 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.example.wheretotravel.presentation.main.fragment.SearchFragment"
+        android:name="com.example.wheretotravel.presentation.main.fragment.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_help"
         android:name="com.example.wheretotravel.presentation.main.fragment.HelpFragment"
@@ -25,5 +29,14 @@
         android:name="com.example.wheretotravel.presentation.main.fragment.RideFragment"
         android:label="fragment_ride"
         tools:layout="@layout/fragment_ride" />
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.wheretotravel.presentation.main.fragment.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_navigation_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
 
 </navigation>

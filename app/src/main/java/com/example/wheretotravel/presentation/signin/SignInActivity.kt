@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import com.example.wheretotravel.R
-import com.example.wheretotravel.presentation.main.MainActivity
+import com.example.wheretotravel.presentation.MainActivity
 import com.example.wheretotravel.presentation.signup.SignUpActivity
 
 class SignInActivity : AppCompatActivity() {
