@@ -1,22 +1,11 @@
 package com.example.wheretotravel.presentation.signin
 
-import android.content.Context
-import android.widget.EditText
 import androidx.lifecycle.ViewModel
 import com.example.wheretotravel.domain.functions.SignIn
 import com.example.wheretotravel.domain.models.UserSignIn
-import com.example.wheretotravel.domain.models.UserSignUp
 
 class SignInViewModel(
     private val signIn: SignIn
 ):ViewModel() {
-
-    fun signIn(edLogin:EditText , edPassword: EditText, context: Context){
-        if(!(edLogin.text.toString().isEmpty() && edPassword.text.toString().isEmpty())){
-            val param = UserSignIn(
-                login = edLogin.text.toString(),
-                password = edPassword.text.toString())
-            signIn.execute(param, context)
-        }
-    }
+    suspend fun signIn(param: UserSignIn):Boolean =  signIn.execute(param)
 }

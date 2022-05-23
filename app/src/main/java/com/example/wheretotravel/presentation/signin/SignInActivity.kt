@@ -3,38 +3,57 @@ package com.example.wheretotravel.presentation.signin
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.wheretotravel.R
+import androidx.lifecycle.lifecycleScope
+import com.example.wheretotravel.databinding.ActivitySignInBinding
+import com.example.wheretotravel.domain.models.UserSignIn
 import com.example.wheretotravel.presentation.MainActivity
 import com.example.wheretotravel.presentation.signup.SignUpActivity
+import com.example.wheretotravel.presentation.signup.SignUpViewModel
+import com.example.wheretotravel.presentation.signup.SignUpViewModelFactory
+import kotlinx.coroutines.launch
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var vm: SignInViewModel
 
+    lateinit var binding: ActivitySignInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val edLogin = findViewById<EditText>(R.id.edLogin)
-        val edPassword = findViewById<EditText>(R.id.edPassword)
-        val btnLogin = findViewById<Button>(R.id.btn_login)
-        val btnAuth = findViewById<Button>(R.id.btn_auth)
 
+
+       // vm = ViewModelProvider(this, SignInViewModelFactory(this))[SignInViewModel::class.java]
         vm = ViewModelProvider(this, SignInViewModelFactory(this))
             .get(SignInViewModel::class.java)
+        binding.run {
+            btnLogin.setOnClickListener {
+                if (!(edLogin.text.toString().isEmpty() &&  edPassword.text.toString().isEmpty())) {
+                    val param = UserSignIn(
+                        login = edLogin.text.toString(),
+                        password = edPassword.text.toString())
+                    lifecycleScope.launch {
+                        if (vm.signIn(param)){
+                            val intent = Intent(this@SignInActivity, MainActivity::class.java)
+                            startActivity(intent)
+                        }
+                        else
+                            Toast.makeText(this@SignInActivity, "Неверные данные", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                else
+                    Toast.makeText(this@SignInActivity, "Заполните все поля", Toast.LENGTH_SHORT).show()
+            }
 
-        btnLogin.setOnClickListener {
-            vm.signIn(edLogin, edPassword, this)
-            val intent = Intent(this@SignInActivity, MainActivity::class.java)
-            startActivity(intent)
+            btnAuth.setOnClickListener {
+                val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
+                startActivity(intent)
+            }
         }
 
-        btnAuth.setOnClickListener {
-            val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.wheretotravel.domain.functions.SignIn
-import com.example.wheretotravel.presentation.signup.SignUpViewModel
 
 class SignInViewModelFactory(context: Context): ViewModelProvider.Factory {
 
