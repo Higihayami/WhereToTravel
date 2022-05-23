@@ -9,7 +9,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.wheretotravel.R
 import com.example.wheretotravel.databinding.ActivityMainBinding
-import com.example.wheretotravel.presentation.main.fragment.DataModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 //import com.example.wheretotravel.domain.usecase.GetUserNameUseCase

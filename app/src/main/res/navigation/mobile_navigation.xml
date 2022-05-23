@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.example.wheretotravel.presentation.main.fragment.search.SearchFragment"
+        android:name="com.example.wheretotravel.presentation.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -16,22 +16,22 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_help"
-        android:name="com.example.wheretotravel.presentation.main.fragment.help.HelpFragment"
+        android:name="com.example.wheretotravel.presentation.help.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.wheretotravel.presentation.main.fragment.profile.ProfileFragment"
+        android:name="com.example.wheretotravel.presentation.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile"/>
     <fragment
         android:id="@+id/navigation_ride"
-        android:name="com.example.wheretotravel.presentation.main.fragment.rides.RideFragment"
+        android:name="com.example.wheretotravel.presentation.rides.RideFragment"
         android:label="fragment_ride"
         tools:layout="@layout/fragment_ride" />
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.wheretotravel.presentation.main.fragment.list.ListFragment"
+        android:name="com.example.wheretotravel.presentation.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action

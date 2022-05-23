@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".presentation.main.fragment.list.ListFragment">
+    tools:context=".presentation.list.ListFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,9 +13,11 @@
 
         <ImageView
             android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_revert"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_btn_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,8 +27,11 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_back"
+            app:layout_constraintVertical_bias="0.0"
+            tools:listitem="@layout/rides_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

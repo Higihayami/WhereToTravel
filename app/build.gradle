@@ -61,6 +61,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
 
+    implementation 'org.apache.commons:commons-csv:1.5'
+
     // region Network
     def retrofit = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:${retrofit}"
