@@ -11,8 +11,6 @@ import com.example.wheretotravel.R
 import com.example.wheretotravel.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-//import com.example.wheretotravel.domain.usecase.GetUserNameUseCase
-//import com.example.wheretotravel.domain.usecase.SaveUserNameUseCase
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
@@ -35,9 +33,5 @@ class MainActivity : AppCompatActivity() {
 
             navView.setupWithNavController(navController)
 
-            /*supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.place_holder, SearchFragment.newInstance())
-                .commit()*/
         }
 }

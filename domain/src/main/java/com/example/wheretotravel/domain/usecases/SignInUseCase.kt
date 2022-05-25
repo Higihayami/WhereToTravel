@@ -1,19 +1,15 @@
-package com.example.wheretotravel.domain.functions
+package com.example.wheretotravel.domain.usecases
 
-import android.content.Context
-import android.text.TextUtils
-import android.widget.Toast
 import com.example.wheretotravel.domain.models.UserSignIn
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.suspendCancellableCoroutine
 
-class SignIn {
+class SignInUseCase {
 
     private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
 
-    suspend fun execute(param: UserSignIn): Boolean = suspendCancellableCoroutine { res ->
+    suspend fun signIn(param: UserSignIn): Boolean = suspendCancellableCoroutine { res ->
         mAuth.signInWithEmailAndPassword(
             param.login,
             param.password

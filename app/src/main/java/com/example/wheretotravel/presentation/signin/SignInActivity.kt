@@ -27,7 +27,6 @@ class SignInActivity : AppCompatActivity() {
 
 
 
-       // vm = ViewModelProvider(this, SignInViewModelFactory(this))[SignInViewModel::class.java]
         vm = ViewModelProvider(this, SignInViewModelFactory(this))
             .get(SignInViewModel::class.java)
         binding.run {

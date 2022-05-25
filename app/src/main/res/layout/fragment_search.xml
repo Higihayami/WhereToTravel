@@ -27,9 +27,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="354dp"
+        android:layout_width="314dp"
         android:layout_height="208dp"
         android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@color/white"
         android:radius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,6 +90,7 @@
             android:layout_height="52dp"
             android:text="Найти"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ed_date" />
 
