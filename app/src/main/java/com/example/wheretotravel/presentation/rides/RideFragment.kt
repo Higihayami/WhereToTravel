@@ -10,7 +10,6 @@ import androidx.lifecycle.get
 import com.example.wheretotravel.R
 import com.example.wheretotravel.presentation.profile.ProfileViewModel
 import com.example.wheretotravel.presentation.search.SearchViewModel
-import com.example.wheretotravel.presentation.search.SearchViewModelFactory
 
 class RideFragment : Fragment() {
 

@@ -11,7 +11,7 @@ class SignUpViewModel(
 ) : ViewModel() {
 
     suspend fun login(param: UserSignUp) : Boolean = signUp.execute(param)
-    fun getRotesTable(){
-        getRoutesTable.getTable()
-    }
-}
+    //fun getRotesTable(){
+    //    getRoutesTable.getTable()
+    //}
+}//

@@ -31,7 +31,7 @@ class   SignUpActivity : AppCompatActivity() {
         setContentView(view)
 
 
-        vm = ViewModelProvider(this, SignUpViewModelFactory(this))
+        vm = ViewModelProvider(this)
             .get(SignUpViewModel::class.java)
         binding.run{
             btnAuth.setOnClickListener {

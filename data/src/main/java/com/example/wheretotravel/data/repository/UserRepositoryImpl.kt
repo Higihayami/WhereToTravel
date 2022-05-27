@@ -1,13 +1,12 @@
 package com.example.wheretotravel.data.repository
 
-import android.content.Context
 import com.example.wheretotravel.data.storage.models.User
-import com.example.wheretotravel.data.storage.UserStorage
+import com.example.wheretotravel.data.storage.UserDataBase
 import com.example.wheretotravel.domain.models.UserSignUp
 import com.example.wheretotravel.domain.repository.UserRepository
 
 
-class UserRepositoryImpl(private val userStorage: UserStorage): UserRepository {
+class UserRepositoryImpl(private val userStorage: UserDataBase): UserRepository {
 
     override fun saveUser(saveParam: UserSignUp): Boolean{
 

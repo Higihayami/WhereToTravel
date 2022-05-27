@@ -39,8 +39,8 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        vm = ViewModelProvider(this, SearchViewModelFactory(this))[SearchViewModel::class.java]
-
+        vm = ViewModelProvider(this)[SearchViewModel::class.java]
+        vm.getRoutes()
         binding.btnSearch.setOnClickListener {
             MAIN.navController.navigate(R.id.action_navigation_search_to_listFragment)
             lifecycleScope.launch {
@@ -48,7 +48,7 @@ class SearchFragment : Fragment() {
                     val where = binding.edWhere.text.toString()
                     val whence = binding.edWhence.text.toString()
                     val route = get.getRoutesId(where, whence)
-                    val response = repository.getRides(route.arrival_id.toString(),route.departure_id.toString() ,"21.07.2022" )
+                    val response = repository.getRides(/*route.arrival_id.toString()*/"2064001",/*route.departure_id.toString()*/"2060500" ,"21.07.2022" )
                         Toast.makeText(context, response.trips[1].trainNumber, Toast.LENGTH_LONG).show()
                     dataModel.message.value = response.trips
                 }catch(ex:Exception){

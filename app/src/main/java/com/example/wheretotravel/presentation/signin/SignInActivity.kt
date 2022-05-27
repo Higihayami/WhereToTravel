@@ -11,7 +11,6 @@ import com.example.wheretotravel.domain.models.UserSignIn
 import com.example.wheretotravel.presentation.MainActivity
 import com.example.wheretotravel.presentation.signup.SignUpActivity
 import com.example.wheretotravel.presentation.signup.SignUpViewModel
-import com.example.wheretotravel.presentation.signup.SignUpViewModelFactory
 import kotlinx.coroutines.launch
 
 class SignInActivity : AppCompatActivity() {
@@ -25,11 +24,11 @@ class SignInActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
-
         vm = ViewModelProvider(this, SignInViewModelFactory(this))
             .get(SignInViewModel::class.java)
-        vm.getRotesTable()
+
+
+
         binding.run {
             btnLogin.setOnClickListener {
                 if (!(edLogin.text.toString().isEmpty() &&  edPassword.text.toString().isEmpty())) {

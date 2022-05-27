@@ -7,10 +7,6 @@ import com.example.wheretotravel.domain.usecases.GetRoutesTableUseCase
 
 class SignInViewModel(
     private val signIn: SignInUseCase,
-    private val getRoutesTable: GetRoutesTableUseCase
 ):ViewModel() {
     suspend fun signIn(param: UserSignIn):Boolean =  signIn.signIn(param)
-    fun getRotesTable(){
-        getRoutesTable.getTable()
-    }
 }
