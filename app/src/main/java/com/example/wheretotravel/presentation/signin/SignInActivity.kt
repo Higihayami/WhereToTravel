@@ -29,6 +29,7 @@ class SignInActivity : AppCompatActivity() {
 
         vm = ViewModelProvider(this, SignInViewModelFactory(this))
             .get(SignInViewModel::class.java)
+        vm.getRotesTable()
         binding.run {
             btnLogin.setOnClickListener {
                 if (!(edLogin.text.toString().isEmpty() &&  edPassword.text.toString().isEmpty())) {

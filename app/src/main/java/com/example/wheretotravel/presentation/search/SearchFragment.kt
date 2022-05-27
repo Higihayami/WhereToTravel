@@ -37,10 +37,8 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.e("AAA","fragment created")
         vm = ViewModelProvider(this, SearchViewModelFactory(this))[SearchViewModel::class.java]
 
         binding.btnSearch.setOnClickListener {
@@ -54,14 +52,12 @@ class SearchFragment : Fragment() {
                         Toast.makeText(context, response.trips[1].trainNumber, Toast.LENGTH_LONG).show()
                     dataModel.message.value = response.trips
                 }catch(ex:Exception){
-                    Log.e("asd",ex.message.toString())
                 }
             }
         }
 
 
     }
-
 
     companion object {
         @JvmStatic
