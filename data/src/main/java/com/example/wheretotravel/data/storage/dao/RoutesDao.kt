@@ -8,6 +8,6 @@ import com.example.wheretotravel.data.storage.models.Routes
 @Dao
 interface RoutesDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(rotes: Routes)
+    suspend fun insert(rotes: Routes)
 
 }

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".presentation.list.ListFragment">
+    tools:context=".presentation.list.ListFragment"
+    android:background="#C2D1DA">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
