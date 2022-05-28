@@ -17,7 +17,7 @@ abstract class RoutesDataBase: RoomDatabase() {
             @Synchronized
             fun getInstance(context: Context): RoutesDataBase {
                 return if (database == null) {
-                    database = Room.databaseBuilder(context, RoutesDataBase::class.java, "dbOrd").allowMainThreadQueries().fallbackToDestructiveMigration().build()
+                    database = Room.databaseBuilder(context, RoutesDataBase::class.java, "user_table").allowMainThreadQueries().fallbackToDestructiveMigration().build()
                     database as RoutesDataBase
                 } else {
                     database as RoutesDataBase

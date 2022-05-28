@@ -47,7 +47,6 @@ class SignUpUseCase(private val userRepository: UserRepository) {
     }
 
     private fun writeNewUser(user: ProfileModel, userId: String) {
-
     }
 }
 

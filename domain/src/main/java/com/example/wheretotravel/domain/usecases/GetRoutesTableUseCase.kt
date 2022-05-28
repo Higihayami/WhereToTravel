@@ -2,6 +2,7 @@ package com.example.wheretotravel.domain.usecases
 
 import RoutesFireBaseModel
 import android.util.Log
+import com.example.wheretotravel.domain.models.RoutesModel
 import com.example.wheretotravel.domain.repository.RoutesRepository
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -44,10 +45,6 @@ class GetRoutesTableUseCase() {
             }
             messageRef.addListenerForSingleValueEvent(valueEventListener)
         },BackpressureStrategy.BUFFER)
-
-
-
-
     }
 
 

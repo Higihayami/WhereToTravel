@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.wheretotravel.R
 import com.example.wheretotravel.databinding.FragmentSearchBinding
+import com.example.wheretotravel.domain.models.RoutesModel
 import com.example.wheretotravel.domain.usecases.RoutesUseCase
 import com.example.wheretotravel.presentation.MAIN
 import com.example.wheretotravel.presentation.api.RidesRepository
@@ -47,7 +48,9 @@ class SearchFragment : Fragment() {
                 try {
                     val where = binding.edWhere.text.toString()
                     val whence = binding.edWhence.text.toString()
-                    val route = get.getRoutesId(where, whence)
+                    vm.getRoutesName(departure_name = where, arrival_name = whence).observe(viewLifecycleOwner) { listProduct ->
+                        Log.e("roma", listProduct.toString())
+                    }
                     val response = repository.getRides(/*route.arrival_id.toString()*/"2064001",/*route.departure_id.toString()*/"2060500" ,"21.07.2022" )
                         Toast.makeText(context, response.trips[1].trainNumber, Toast.LENGTH_LONG).show()
                     dataModel.message.value = response.trips
