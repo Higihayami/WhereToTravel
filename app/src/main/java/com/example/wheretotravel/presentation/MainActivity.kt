@@ -13,23 +13,20 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding:ActivityMainBinding
+
     lateinit var navController: NavController
-    private val dataModel: DataModel by viewModels()
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            binding  = ActivityMainBinding.inflate(layoutInflater)
-            setContentView(binding.root)
+            setContentView(R.layout.activity_main)
+
             MAIN = this
 
-            dataModel.message.observe(this) {}
+            val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-            val navView:BottomNavigationView = findViewById(R.id.nav_view)
-
-            val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-            navController = findNavController(R.id.nav_host_fragment)
-
+            val navHostFragment =
+                supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            navController = navHostFragment.navController
 
             navView.setupWithNavController(navController)
 

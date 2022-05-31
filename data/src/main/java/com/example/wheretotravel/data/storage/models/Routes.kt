@@ -4,18 +4,14 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "user_table")
+@Entity(tableName = "user_table", primaryKeys = ["arrival_Id", "departure_id"])
 class Routes(
-    @PrimaryKey
-    val routes_id: String,
 
-    @ColumnInfo
     val arrival_Id: Int,
 
     @ColumnInfo
     val arrival_name: String,
 
-    @ColumnInfo
     val departure_id: Int,
 
     @ColumnInfo

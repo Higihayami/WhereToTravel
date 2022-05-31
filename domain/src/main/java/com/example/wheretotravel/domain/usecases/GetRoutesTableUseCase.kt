@@ -1,25 +1,22 @@
 package com.example.wheretotravel.domain.usecases
 
 import RoutesFireBaseModel
-import android.util.Log
 import com.example.wheretotravel.domain.models.RoutesModel
 import com.example.wheretotravel.domain.repository.RoutesRepository
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.BackpressureStrategy
 import io.reactivex.rxjava3.core.Flowable
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class GetRoutesTableUseCase() {
+class GetRoutesTableUseCase(val routesRepository: RoutesRepository) {
 
-    fun getTable(routesRepository: RoutesRepository):Flowable<MutableList<RoutesFireBaseModel?>>{
+
+    fun getTable(): Flowable<MutableList<RoutesFireBaseModel?>> {
         return Flowable.create({ subscribe ->
             val rootRef = FirebaseDatabase.getInstance().reference
             val messageRef =
@@ -44,8 +41,6 @@ class GetRoutesTableUseCase() {
                 }
             }
             messageRef.addListenerForSingleValueEvent(valueEventListener)
-        },BackpressureStrategy.BUFFER)
+        }, BackpressureStrategy.BUFFER)
     }
-
-
 }

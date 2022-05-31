@@ -6,5 +6,5 @@ import com.example.wheretotravel.domain.models.RoutesModel
 
 interface RoutesRepository {
     suspend fun insert (listRoutes: MutableList<RoutesFireBaseModel?>)
-    suspend fun getName (arrival_name:String , departure_name:String) :LiveData<RoutesModel>
+    suspend fun getName (arrival_name: String, departure_name: String) :RoutesModel
 }

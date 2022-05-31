@@ -1,12 +1,17 @@
-//package com.example.wheretotravel.presentation.search
-//
-//import android.app.Application
-//import androidx.lifecycle.ViewModel
-//import androidx.lifecycle.ViewModelProvider
-//
-//class SearchViewModelFactory(val context: SearchFragment): ViewModelProvider.Factory {
-//    val application: SearchFragment = context
-//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//        return SearchViewModel(application = application.context) as T
-//    }
-//}
+package com.example.wheretotravel.presentation.search
+
+import android.app.Application
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.wheretotravel.domain.usecases.GetRoutesNameUseCase
+import com.example.wheretotravel.domain.usecases.GetRoutesTableUseCase
+
+class SearchViewModelFactory(
+    val getRoutesTableUseCase: GetRoutesTableUseCase,
+    val getRoutesNameUseCase: GetRoutesNameUseCase
+) : ViewModelProvider.Factory {
+
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return SearchViewModel(getRoutesTableUseCase = getRoutesTableUseCase, getRoutesNameUseCase = getRoutesNameUseCase) as T
+    }
+}
