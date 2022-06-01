@@ -1,5 +1,6 @@
 package com.example.wheretotravel.di
 
+import com.example.wheretotravel.presentation.list.ListFragment
 import com.example.wheretotravel.presentation.search.SearchFragment
 import dagger.Component
 
@@ -7,5 +8,8 @@ import dagger.Component
 interface AppComponent {
 
     fun inject(searchFragment: SearchFragment)
+
+    fun inject(listFragment: ListFragment)
+
 
 }

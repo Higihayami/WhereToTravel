@@ -3,6 +3,7 @@ package com.example.wheretotravel.di
 import android.content.Context
 import com.example.wheretotravel.domain.usecases.GetRoutesNameUseCase
 import com.example.wheretotravel.domain.usecases.GetRoutesTableUseCase
+import com.example.wheretotravel.presentation.list.ListViewModelFactory
 import com.example.wheretotravel.presentation.search.SearchViewModelFactory
 import dagger.Module
 import dagger.Provides
@@ -22,6 +23,15 @@ class AppModule(val context: Context) {
     ): SearchViewModelFactory {
         return SearchViewModelFactory(
             getRoutesTableUseCase = getRoutesTableUseCase,
+            getRoutesNameUseCase = getRoutesNameUseCase
+        )
+    }
+
+    @Provides
+    fun provideListViewModelFactory(
+        getRoutesNameUseCase: GetRoutesNameUseCase
+    ): ListViewModelFactory {
+        return ListViewModelFactory(
             getRoutesNameUseCase = getRoutesNameUseCase
         )
     }

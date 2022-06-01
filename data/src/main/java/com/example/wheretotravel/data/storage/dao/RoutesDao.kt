@@ -17,5 +17,5 @@ interface RoutesDao {
     suspend fun getId(arrival_name: String, departure_name: String): Routes?
 
     @Query("SELECT * FROM user_table where arrival_id = :arrival_id and departure_id = :departure_id ")
-    fun getName(arrival_id: Int, departure_id: Int): Routes
+    fun getName(arrival_id: Int, departure_id: Int): Routes?
 }

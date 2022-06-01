@@ -8,7 +8,7 @@ class GetRoutesNameUseCase(val routesRepository: RoutesRepository) {
         return routesRepository.getId(arrival_name,departure_name)
     }
 
-    fun getRoutesName(arrival_id: Int, departure_id: Int): RoutesModel{
+    fun getRoutesName(arrival_id: Int, departure_id: Int): RoutesModel?{
         return routesRepository.getName(arrival_id, departure_id)
     }
 }
