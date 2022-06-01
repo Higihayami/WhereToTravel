@@ -3,132 +3,194 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="622px"
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="8dp"
+    android:background="#C2D1DA"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:background="#C2D1DA">
+    app:layout_constraintTop_toTopOf="parent">
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tv_departure_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:textColor="#000000"
-                android:textSize="32dp"
-                app:autoSizeMaxTextSize="100dp"
-                app:autoSizeMinTextSize="100dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="00:00" />
+        <TextView
+            android:id="@+id/tv_firm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:textSize="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_arrival_city" />
 
-            <TextView
-                android:id="@+id/tv_departure_day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:textSize="24dp"
-                app:autoSizeMaxTextSize="100dp"
-                app:autoSizeMinTextSize="100dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_departure_time"
-                app:layout_constraintStart_toEndOf="@+id/tv_departure_time"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="13 мая" />
+        <TextView
+            android:id="@+id/tv_cost4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="цена"
+            app:layout_constraintStart_toEndOf="@+id/tv_category4"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cost3" />
 
-            <TextView
-                android:id="@+id/tv_arrival_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:textColor="#000000"
-                android:textSize="32dp"
-                app:autoSizeMaxTextSize="100dp"
-                app:autoSizeMinTextSize="100dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="00:00" />
+        <TextView
+            android:id="@+id/tv_category4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="Категория"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_category3" />
+
+        <TextView
+            android:id="@+id/tv_cost3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="цена"
+            app:layout_constraintStart_toEndOf="@+id/tv_category3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cost" />
+
+        <TextView
+            android:id="@+id/tv_category3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="Категория"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_category2" />
+
+        <TextView
+            android:id="@+id/tv_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="цена"
+            app:layout_constraintStart_toEndOf="@+id/tv_category2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cost2" />
+
+        <TextView
+            android:id="@+id/tv_category2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="Категория"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_category" />
+
+        <TextView
+            android:id="@+id/tv_cost2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="цена"
+            app:layout_constraintStart_toEndOf="@+id/tv_category"
+            app:layout_constraintTop_toBottomOf="@+id/tv_num_train" />
+
+        <TextView
+            android:id="@+id/tv_departure_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:textColor="#000000"
+            android:textSize="32dp"
+            app:autoSizeMaxTextSize="100dp"
+            app:autoSizeMinTextSize="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="00:00" />
+
+        <TextView
+            android:id="@+id/tv_departure_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:textSize="24dp"
+            app:autoSizeMaxTextSize="100dp"
+            app:autoSizeMinTextSize="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_departure_time"
+            app:layout_constraintStart_toEndOf="@+id/tv_departure_time"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="13 мая" />
+
+        <TextView
+            android:id="@+id/tv_arrival_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textColor="#000000"
+            android:textSize="32dp"
+            app:autoSizeMaxTextSize="100dp"
+            app:autoSizeMinTextSize="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="00:00" />
 
 
-            <TextView
-                android:id="@+id/tv_departure_city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:textColor="#000000"
-                android:textSize="28dp"
-                app:autoSizeMaxTextSize="100dp"
-                app:autoSizeMinTextSize="100dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_departure_time"
-                tools:text="Казань" />
+        <TextView
+            android:id="@+id/tv_departure_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:textColor="#000000"
+            android:textSize="28dp"
+            app:autoSizeMaxTextSize="100dp"
+            app:autoSizeMinTextSize="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_departure_time"
+            tools:text="Казань" />
 
-            <TextView
-                android:id="@+id/tv_arrival_city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:textColor="#000000"
-                android:textSize="28dp"
-                app:autoSizeMaxTextSize="100dp"
-                app:autoSizeMinTextSize="100dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_arrival_time"
-                tools:text="Москва" />
+        <TextView
+            android:id="@+id/tv_arrival_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textColor="#000000"
+            android:textSize="28dp"
+            app:autoSizeMaxTextSize="100dp"
+            app:autoSizeMinTextSize="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_arrival_time"
+            tools:text="Москва" />
 
-            <TextView
-                android:id="@+id/tv_num_train"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_weight="1"
-                android:text="451А"
-                android:textSize="28dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_departure_city" />
-
-
-            <TextView
-                android:id="@+id/tv_firm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:textColor="#000000"
-                android:textSize="28dp"
-                app:layout_constraintStart_toEndOf="@+id/tv_num_train"
-                app:layout_constraintTop_toBottomOf="@+id/tv_departure_city" />
-
-            <TextView
-                android:id="@+id/tv_cost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_weight="1"
-                android:text="цена"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_num_train" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_num_train"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="451А"
+            android:textSize="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_departure_city" />
 
 
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="Категория"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_num_train" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.cardview.widget.CardView>

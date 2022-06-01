@@ -20,43 +20,12 @@ class RoutesUseCase {
         dataBase.child("routes").get()
         dataBase.child("routes").get()
             .addOnSuccessListener { data ->
-                println("Пользователь: ${data.value}")
+                println("Путь: ${data.value}")
             }
             .addOnFailureListener { exception ->
-                println("Не удалось получить пользователя из базы")
+                println("Не удалось получить вокзал из базы")
                 exception.printStackTrace()
             }
-       // while ( i <= 50705){
-//
-       //     val departure_name: String = suspendCancellableCoroutine { res ->
-       //         dataBase.child("routes").child(i.toString()).child("departure_station_name").get().addOnSuccessListener {
-       //             res.resume(it.value.toString()) {}
-       //         }
-       //     }
-       //     Log.e("aye", departure_name)
-       //     if(nameStationDeparture == departure_name ){
-       //         val arrival:String = suspendCancellableCoroutine { res ->
-       //             dataBase.child("routes").child(i.toString()).child("arrival_station_name").get().addOnSuccessListener {
-       //                 res.resume(it.value.toString()) {}
-       //             }
-       //         }
-       //         if(nameStationArrival == arrival){
-       //             arrival_id =  suspendCancellableCoroutine { res ->
-       //                 dataBase.child("routes").child(i.toString()).child("arrival_station_id").get().addOnSuccessListener {
-       //                     res.resume(it.value.toString().toInt()) {}
-       //                 }
-       //             }
-       //             departure_id = suspendCancellableCoroutine { res ->
-       //                 dataBase.child("routes").child(i.toString()).child("departure_station_id").get().addOnSuccessListener {
-       //                     res.resume(it.value.toString().toInt()) {}
-       //                 }
-//
-       //             }
-       //             break
-       //         }
-       //     }
-       //     i++
-       // }
 
         val routes = RoutesModel(
             departure_id = departure_id,

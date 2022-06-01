@@ -1,7 +1,6 @@
 package com.example.wheretotravel.presentation.api
 
 import com.example.wheretotravel.presentation.api.response.RidesResponseJson
-import com.example.wheretotravel.presentation.api.response.Trip
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

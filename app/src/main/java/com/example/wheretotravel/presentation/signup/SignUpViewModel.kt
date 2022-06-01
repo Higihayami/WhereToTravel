@@ -7,11 +7,7 @@ import com.example.wheretotravel.domain.usecases.GetRoutesTableUseCase
 
 class SignUpViewModel(
     private val signUp: SignUpUseCase,
-    private val getRoutesTable: GetRoutesTableUseCase
 ) : ViewModel() {
 
     suspend fun login(param: UserSignUp) : Boolean = signUp.execute(param)
-    //fun getRotesTable(){
-    //    getRoutesTable.getTable()
-    //}
-}//
+}

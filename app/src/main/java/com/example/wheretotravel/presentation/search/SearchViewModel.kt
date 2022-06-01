@@ -19,7 +19,7 @@ class SearchViewModel(
             .subscribe()
     }
 
-    suspend fun getRoutesName(arrival_name: String, departure_name: String): RoutesModel {
-        return getRoutesNameUseCase.getRoutesName(arrival_name, departure_name)
+    suspend fun getRoutesName(arrival_name: String, departure_name: String): RoutesModel? {
+        return getRoutesNameUseCase.getRoutesId(arrival_name, departure_name)
     }
 }

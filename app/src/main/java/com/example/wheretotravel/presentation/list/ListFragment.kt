@@ -52,10 +52,6 @@ class ListFragment : Fragment() {
         }
 
 
-
-
-
-
         binding.btnBack.setOnClickListener {
             MAIN.navController.navigate(R.id.action_listFragment_to_navigation_search)
         }

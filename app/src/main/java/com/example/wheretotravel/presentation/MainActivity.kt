@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
             MAIN = this
 
+
             val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
             val navHostFragment =

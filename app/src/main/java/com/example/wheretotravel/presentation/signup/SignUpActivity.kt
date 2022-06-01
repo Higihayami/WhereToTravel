@@ -9,18 +9,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.wheretotravel.R
-import com.example.wheretotravel.databinding.ActivitySignInBinding
 import com.example.wheretotravel.databinding.ActivitySignUpBinding
 import com.example.wheretotravel.domain.models.UserSignUp
 import com.example.wheretotravel.presentation.MainActivity
 import com.example.wheretotravel.presentation.signin.SignInActivity
+import com.example.wheretotravel.presentation.signin.SignInViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 
 class   SignUpActivity : AppCompatActivity() {
 
-    private lateinit var mAuth: FirebaseAuth
     private lateinit var vm: SignUpViewModel
     lateinit var binding: ActivitySignUpBinding
 
@@ -31,8 +30,7 @@ class   SignUpActivity : AppCompatActivity() {
         setContentView(view)
 
 
-        vm = ViewModelProvider(this)
-            .get(SignUpViewModel::class.java)
+        vm = ViewModelProvider(this, SignUpViewModelFactory(this))[SignUpViewModel::class.java]
         binding.run{
             btnAuth.setOnClickListener {
                 if(!(edLogin.text.toString().isEmpty() &&  edPassword.text.toString().isEmpty() && edPhone.text.toString().isEmpty() && edRepeatPassword.text.toString().isEmpty() && edName.text.toString().isEmpty())){
