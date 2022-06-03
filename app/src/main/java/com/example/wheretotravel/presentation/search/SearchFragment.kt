@@ -51,20 +51,13 @@ class SearchFragment : Fragment() {
 
         vm = ViewModelProvider(this, viewModelFactory)[SearchViewModel::class.java]
 
-        //vm.getRoutes()
 
-        //lifecycleScope.launch{
-        //    val routes =
-        //    Log.e("BBB", routes.departure_name + "    " + routes.departure_id)
-        //    if (routes.departure_name == null)
-        //
-        //}
-        //lifecycleScope.launch {
-        //    val route = vm.getRoutesName("Казань", "Тюмень")
-        //    if (route?.departure_name == null) {
-        //        vm.getRoutes()
-        //    }
-        //}
+        lifecycleScope.launch {
+            val route = vm.getRoutesName("Казань", "Тюмень")
+            if (route?.departure_name == null) {
+                vm.getRoutes()
+            }
+        }
 
         binding.btnSearch.setOnClickListener {
             val bundle =  Bundle()

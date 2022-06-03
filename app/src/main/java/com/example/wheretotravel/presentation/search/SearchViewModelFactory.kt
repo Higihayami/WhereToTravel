@@ -1,6 +1,5 @@
 package com.example.wheretotravel.presentation.search
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.wheretotravel.domain.usecases.GetRoutesNameUseCase

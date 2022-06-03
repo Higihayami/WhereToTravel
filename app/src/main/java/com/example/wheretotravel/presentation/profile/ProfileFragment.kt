@@ -1,5 +1,6 @@
 package com.example.wheretotravel.presentation.profile
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.wheretotravel.databinding.FragmentProfileBinding
 import com.example.wheretotravel.domain.models.ProfileModel
 import com.example.wheretotravel.domain.usecases.ProfileUseCase
+import com.example.wheretotravel.presentation.signup.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -39,6 +41,7 @@ class ProfileFragment : Fragment() {
         dataBase  = Firebase.database.reference
         var name :String
         var phone: String
+        var email: String
         lifecycleScope.launch{
             name = vm.getName(userId)
             binding.tvName.text =  name
@@ -46,6 +49,13 @@ class ProfileFragment : Fragment() {
         lifecycleScope.launch{
             phone = vm.getPhone(userId)
             binding.tvPhone.text =  phone
+        }
+        lifecycleScope.launch{
+            email = vm.getEmail(userId)
+            binding.tvEmail.text =  email
+        }
+        lifecycleScope.launch{
+            vm.signOut()
         }
 
     }

@@ -33,5 +33,16 @@ class ProfileUseCase {
         }
     }
 
+    suspend fun getEmail(userId: String):String = suspendCancellableCoroutine { res ->
+        val dataBase  = Firebase.database.reference
+        dataBase.child("users").child(userId).child("login").get().addOnSuccessListener{
+            res.resume(it.value.toString()) {}
+        }
+    }
+
+    suspend fun signOut(){
+        FirebaseAuth.getInstance().signOut()
+    }
+
 
 }

@@ -5,6 +5,7 @@ import android.util.Log
 import com.example.wheretotravel.data.storage.dao.RoutesDao
 import com.example.wheretotravel.data.storage.models.Routes
 import com.example.wheretotravel.domain.models.RoutesModel
+import com.example.wheretotravel.domain.models.SaveModel
 import com.example.wheretotravel.domain.repository.RoutesRepository
 import java.util.*
 
@@ -55,4 +56,5 @@ class RoutesRepositoryImpl(private val dao: RoutesDao) : RoutesRepository {
 
         return routes
     }
+
 }

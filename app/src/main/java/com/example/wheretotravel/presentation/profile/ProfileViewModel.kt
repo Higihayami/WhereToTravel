@@ -10,4 +10,8 @@ class ProfileViewModel(
     suspend fun getName(userId: String):String = profile.getName(userId)
 
     suspend fun getPhone(userId: String):String = profile.getPhone(userId)
+
+    suspend fun getEmail(userId: String):String = profile.getEmail(userId)
+
+    suspend fun signOut() = profile.signOut()
 }

@@ -1,19 +1,23 @@
 package com.example.wheretotravel.presentation.list
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wheretotravel.R
 import com.example.wheretotravel.databinding.RidesItemBinding
+import com.example.wheretotravel.domain.models.Category
+import com.example.wheretotravel.domain.models.SaveModel
 import com.example.wheretotravel.presentation.RoutesNames
 import com.example.wheretotravel.presentation.api.response.Trip
 
-class RidesAdapter(): RecyclerView.Adapter<RidesAdapter.RidesHolder>() {
+class RidesAdapter(val listener: (SaveModel) -> Unit): RecyclerView.Adapter<RidesAdapter.RidesHolder>() {
 
 
     var ridesList = emptyList<Trip>()
     lateinit var routes : RoutesNames
+    lateinit var category: Category
     class RidesHolder(item: View):RecyclerView.ViewHolder(item) {
         val binding = RidesItemBinding.bind(item)
         fun bind(rides: Trip, routes: RoutesNames) = with(binding){
@@ -56,9 +60,32 @@ class RidesAdapter(): RecyclerView.Adapter<RidesAdapter.RidesHolder>() {
                     tvCost4.text = rides?.categories[i].price.toString()
                 }
             }
+
         }
     }
 
+    override fun onViewAttachedToWindow(holder: RidesHolder) {
+        super.onViewAttachedToWindow(holder)
+        holder.binding.btnSave.setOnClickListener {
+            val routeSave = SaveModel(
+                arrival_name = routes.arrival_name,
+                departure_name = routes.departure_name,
+                travel_time = ridesList[holder.adapterPosition].travelTimeInSeconds,
+                date = routes.date,
+                number_train = ridesList[holder.adapterPosition].trainNumber,
+                firm = ridesList[holder.adapterPosition].name,
+                firm_bool = ridesList[holder.adapterPosition].firm,
+                arrival_time = ridesList[holder.adapterPosition].arrivalTime,
+                departure_time = ridesList[holder.adapterPosition].departureTime
+            )
+            listener(routeSave)
+            Log.e("WWW", routeSave.travel_time)
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: RidesHolder) {
+        holder.binding.btnSave.setOnClickListener(null)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RidesHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rides_item, parent, false)
@@ -78,6 +105,7 @@ class RidesAdapter(): RecyclerView.Adapter<RidesAdapter.RidesHolder>() {
         this.routes = routes
         notifyDataSetChanged()
     }
+
 
 
 }

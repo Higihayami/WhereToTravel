@@ -8,7 +8,7 @@
         />
     <item
         android:id="@+id/navigation_help"
-        android:icon="@drawable/ic_contact"
+        android:icon="@drawable/ic_contactus"
         android:title="Контакты"
         />
     <item
