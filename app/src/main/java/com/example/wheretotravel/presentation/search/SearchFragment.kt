@@ -17,9 +17,11 @@ import com.example.wheretotravel.app.App
 import com.example.wheretotravel.databinding.FragmentSearchBinding
 import com.example.wheretotravel.presentation.DataModel
 import com.example.wheretotravel.presentation.MAIN
+import com.example.wheretotravel.presentation.MainActivity
 import com.example.wheretotravel.presentation.RoutesNames
 import com.example.wheretotravel.presentation.api.RidesRepository
 import com.example.wheretotravel.presentation.api.response.RidesResponseJson
+import com.example.wheretotravel.presentation.profile.ProfileViewModel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
@@ -27,9 +29,9 @@ import javax.inject.Inject
 
 class SearchFragment : Fragment() {
 
-    @Inject
-    lateinit var viewModelFactory: SearchViewModelFactory
-    private lateinit var vm: SearchViewModel
+    private val vm: SearchViewModel by viewModels {
+        (activity as MainActivity).factory
+    }
     lateinit var binding: FragmentSearchBinding
     lateinit var repository: RidesRepository
     private val dataModel: DataModel by activityViewModels()
@@ -45,11 +47,9 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireContext().applicationContext as App).appComponent.inject(this)
         repository = RidesRepository()
 
 
-        vm = ViewModelProvider(this, viewModelFactory)[SearchViewModel::class.java]
 
 
         lifecycleScope.launch {

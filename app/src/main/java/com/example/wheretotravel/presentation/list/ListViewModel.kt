@@ -5,8 +5,9 @@ import com.example.wheretotravel.domain.models.RoutesModel
 import com.example.wheretotravel.domain.models.SaveModel
 import com.example.wheretotravel.domain.usecases.GetRoutesNameUseCase
 import com.example.wheretotravel.domain.usecases.RidesUseCase
+import javax.inject.Inject
 
-class ListViewModel(
+class ListViewModel @Inject constructor(
     private val  getRoutesNameUseCase: GetRoutesNameUseCase,
     private val ridesUseCase: RidesUseCase
 ):ViewModel(

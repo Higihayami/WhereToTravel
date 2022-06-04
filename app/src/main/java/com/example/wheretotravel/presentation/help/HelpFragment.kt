@@ -5,15 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.example.wheretotravel.R
-import com.example.wheretotravel.presentation.list.ListViewModel
-import com.example.wheretotravel.presentation.list.ListViewModelFactory
-import com.example.wheretotravel.presentation.profile.ProfileViewModel
+import com.example.wheretotravel.presentation.MainActivity
 
 class HelpFragment : Fragment() {
 
-    private lateinit var vm: HelpViewModel
+    private val vm: HelpViewModel by viewModels {
+        (activity as MainActivity).factory
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,8 +26,6 @@ class HelpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        vm = ViewModelProvider(this, HelpViewModelFactory(this))
-            .get(HelpViewModel::class.java)
     }
 
     companion object {

@@ -1,16 +1,19 @@
 package com.example.wheretotravel.presentation.profile
 
+import android.app.PendingIntent
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.wheretotravel.databinding.FragmentProfileBinding
 import com.example.wheretotravel.domain.models.ProfileModel
 import com.example.wheretotravel.domain.usecases.ProfileUseCase
+import com.example.wheretotravel.presentation.MainActivity
 import com.example.wheretotravel.presentation.signup.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -20,11 +23,11 @@ import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
     lateinit var binding: FragmentProfileBinding
-    private lateinit var profileModelee: ProfileModel
-    private lateinit var profile: ProfileUseCase
     private lateinit var dataBase: DatabaseReference
     private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
-    private lateinit var vm: ProfileViewModel
+    private val vm: ProfileViewModel by viewModels {
+        (activity as MainActivity).factory
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -35,8 +38,7 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        vm = ViewModelProvider(this, ProfileViewModelFactory(this))
-            .get(ProfileViewModel::class.java)
+
         val userId = mAuth.currentUser?.uid.toString()
         dataBase  = Firebase.database.reference
         var name :String
@@ -54,11 +56,19 @@ class ProfileFragment : Fragment() {
             email = vm.getEmail(userId)
             binding.tvEmail.text =  email
         }
-        lifecycleScope.launch{
-            vm.signOut()
+        binding.btnOut.setOnClickListener {
+            lifecycleScope.launch{
+                vm.signOut()
+
+            }
+            val intent= Intent(requireContext(), SignUpActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
         }
 
+
     }
+
 
     companion object {
         @JvmStatic

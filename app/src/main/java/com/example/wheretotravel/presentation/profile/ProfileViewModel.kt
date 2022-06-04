@@ -2,8 +2,9 @@ package com.example.wheretotravel.presentation.profile
 
 import androidx.lifecycle.ViewModel
 import com.example.wheretotravel.domain.usecases.ProfileUseCase
+import javax.inject.Inject
 
-class ProfileViewModel(
+class ProfileViewModel @Inject constructor(
     private val profile:ProfileUseCase
 ):ViewModel() {
 

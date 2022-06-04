@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModel
 import com.example.wheretotravel.domain.usecases.SignUpUseCase
 import com.example.wheretotravel.domain.models.UserSignUp
 import com.example.wheretotravel.domain.usecases.GetRoutesTableUseCase
+import javax.inject.Inject
 
-class SignUpViewModel(
+class SignUpViewModel @Inject constructor(
     private val signUp: SignUpUseCase,
 ) : ViewModel() {
 

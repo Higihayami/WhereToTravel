@@ -5,26 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wheretotravel.R
-import com.example.wheretotravel.app.App
 import com.example.wheretotravel.databinding.FragmentRideBinding
 import com.example.wheretotravel.domain.models.SaveModel
-import com.example.wheretotravel.presentation.api.response.Trip
-import com.example.wheretotravel.presentation.list.ListViewModelFactory
-import com.example.wheretotravel.presentation.profile.ProfileViewModel
-import com.example.wheretotravel.presentation.search.SearchViewModel
-import javax.inject.Inject
+import com.example.wheretotravel.presentation.MainActivity
 
 class RideFragment : Fragment() {
 
-    @Inject
-    lateinit var viewModelFactory: RideViewModelFactory
+    private val vm: RideViewModel by viewModels {
+        (activity as MainActivity).factory
+    }
     lateinit var binding: FragmentRideBinding
     private val adapter = FollowAdapter()
-    private lateinit var vm: RideViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,9 +32,6 @@ class RideFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireContext().applicationContext as App).appComponent.inject(this)
-
-        vm = ViewModelProvider(this, viewModelFactory)[RideViewModel::class.java]
 
         val rides = vm.getTable()
         init(rides)

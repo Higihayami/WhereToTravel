@@ -4,17 +4,27 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.example.wheretotravel.app.App
 import com.example.wheretotravel.databinding.ActivitySignInBinding
 import com.example.wheretotravel.domain.models.UserSignIn
 import com.example.wheretotravel.presentation.MainActivity
+import com.example.wheretotravel.presentation.ViewModelFactory
 import com.example.wheretotravel.presentation.signup.SignUpActivity
 import com.example.wheretotravel.presentation.signup.SignUpViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class SignInActivity : AppCompatActivity() {
-    private lateinit var vm: SignInViewModel
+
+    @Inject
+    lateinit var factory: ViewModelFactory
+
+    private val vm: SignInViewModel by viewModels{
+        factory
+    }
 
     lateinit var binding: ActivitySignInBinding
 
@@ -24,10 +34,7 @@ class SignInActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        vm = ViewModelProvider(this, SignInViewModelFactory(this))
-            .get(SignInViewModel::class.java)
-
-
+        (applicationContext as App).appComponent.inject(this)
 
         binding.run {
             btnLogin.setOnClickListener {

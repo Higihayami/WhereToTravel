@@ -11,13 +11,12 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.suspendCancellableCoroutine
 
-class SignUpUseCase(private val userRepository: UserRepository) {
+class SignUpUseCase() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var dataBase: DatabaseReference
 
     suspend fun execute (param: UserSignUp): Boolean {
-        userRepository.saveUser(param)
         mAuth = FirebaseAuth.getInstance()
         val result: Boolean = suspendCancellableCoroutine { res ->
             mAuth.createUserWithEmailAndPassword(param.login, param.password)

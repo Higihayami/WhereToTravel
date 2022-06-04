@@ -6,8 +6,9 @@ import com.example.wheretotravel.domain.usecases.GetRoutesNameUseCase
 import com.example.wheretotravel.domain.usecases.GetRoutesTableUseCase
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import javax.inject.Inject
 
-class SearchViewModel(
+class SearchViewModel @Inject constructor(
     private val getRoutesTableUseCase: GetRoutesTableUseCase,
     private val getRoutesNameUseCase: GetRoutesNameUseCase
 ) : ViewModel() {

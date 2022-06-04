@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,17 +16,19 @@ import com.example.wheretotravel.databinding.FragmentListBinding
 import com.example.wheretotravel.presentation.MAIN
 import com.example.wheretotravel.presentation.api.response.Trip
 import com.example.wheretotravel.presentation.DataModel
+import com.example.wheretotravel.presentation.MainActivity
 import com.example.wheretotravel.presentation.RoutesNames
+import com.example.wheretotravel.presentation.profile.ProfileViewModel
 import javax.inject.Inject
 
 class ListFragment : Fragment() {
 
-    @Inject
-    lateinit var viewModelFactory: ListViewModelFactory
+    private val vm: ListViewModel by viewModels {
+        (activity as MainActivity).factory
+    }
     lateinit var binding: FragmentListBinding
     private val adapter = RidesAdapter(){vm.setRides(it)}
     private val dataModel: DataModel by activityViewModels()
-    private lateinit var vm: ListViewModel
     lateinit var currentRoutes: RoutesNames
 
 
@@ -42,9 +45,6 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireContext().applicationContext as App).appComponent.inject(this)
-
-        vm = ViewModelProvider(this, viewModelFactory)[ListViewModel::class.java]
 
         binding.btnBack.setOnClickListener {
             MAIN.navController.navigate(R.id.action_listFragment_to_navigation_search)

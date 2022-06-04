@@ -2,9 +2,8 @@ package com.example.wheretotravel.di
 
 import com.example.wheretotravel.domain.repository.RidesRepository
 import com.example.wheretotravel.domain.repository.RoutesRepository
-import com.example.wheretotravel.domain.usecases.GetRoutesNameUseCase
-import com.example.wheretotravel.domain.usecases.GetRoutesTableUseCase
-import com.example.wheretotravel.domain.usecases.RidesUseCase
+import com.example.wheretotravel.domain.repository.UserRepository
+import com.example.wheretotravel.domain.usecases.*
 import dagger.Module
 import dagger.Provides
 
@@ -24,5 +23,20 @@ class DomainModule {
     @Provides
     fun provideSetRidesUseCase(ridesRepository: RidesRepository): RidesUseCase{
         return RidesUseCase(ridesRepository)
+    }
+
+    @Provides
+    fun provideProfileUseCase(): ProfileUseCase{
+        return  ProfileUseCase()
+    }
+
+    @Provides
+    fun provideSignInUseCase(): SignInUseCase{
+        return SignInUseCase()
+    }
+
+    @Provides
+    fun provideSignUpUseCase(): SignUpUseCase{
+        return  SignUpUseCase()
     }
 }
